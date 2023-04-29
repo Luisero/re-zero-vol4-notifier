@@ -37,7 +37,7 @@ class Scrapper():
         html_text = f'''
             <h1>Re:zero vol 4 está de volta ao estoque da amazon Luis!</h1>
             <p>Se eu fosse você já ia comprar antes que acabe</p>
-            <p>Está custando {self.price} </p>
+            <p>Está custando <strong>{self.price}</strong> </p>
             <img src="https://m.media-amazon.com/images/I/511wUksYqoL._SX370_BO1,204,203,200_.jpg" />
         '''
         email_sender.enviarEmail(email,password, html_text, email_destination,subject)
