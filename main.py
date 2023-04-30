@@ -11,7 +11,11 @@ class Scrapper():
     def __init__(self,url) -> None:
         
         self.options = webdriver.ChromeOptions()
-        self.options.add_argument("--headless=new")
+        self.options.add_argument("--headless")
+        self.options.add_argument("--disable-dev-shm-usage")
+        self.options.add_argument("--no-sandbox")
+
+
         self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
         self.url = url
 
@@ -55,7 +59,6 @@ def run():
         print('The book is not available now.')
 
 schedule.every(1).hours.do(run)
-
 while True:
     schedule.run_pending()
     sleep(1)
